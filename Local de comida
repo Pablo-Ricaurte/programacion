@@ -1,1 +1,107 @@
+def calculo_subtotal(cantidad, opcion):
+    if opcion == 1:
+        return cantidad * 2
+    elif opcion == 2:
+        return cantidad * 3
+    elif opcion == 3:
+        return cantidad * 1.50
 
+
+subtotal = float()
+total = float()
+condicion_salir = False
+condicion_agregar = False
+menu = ["1. Hamburguesas simple....$2", "2. Hamburguesa con papas....$3", "3. Salchipapa....$1.50", "4. Salir"]
+
+menu_bebidas = ["1.Cocacola 1L....$2", "2. Limonada....$1"]
+print(30*"-")
+print("-- HAMBURGUESAS HEISENBERG --")
+print(30*"-")
+while not condicion_salir:
+    print("** MENU **")
+    for elementos in menu:
+        print(elementos)
+    opcion = int(input("Por favor seleccione lo que desea comprar: "))
+    if opcion == 1:
+        print("Haz seleccionado hamburguesa simple")
+        cantidad = int(input("¿Cuantas Haburguesas deseas comprar?: "))
+        subtotal = calculo_subtotal(cantidad, opcion)
+        condicion_agregar = False
+        while not condicion_agregar:
+            agregar_total = input(f"El subtotal es : ${subtotal}, ¿Estas seguro de agregar este producto a tu compra(s/n)?: ")
+            if agregar_total == "s" or agregar_total == "S":
+                total += subtotal
+                subtotal = 0
+                finalizar = input("¿Deseas finalizar la compra (s/n)?: ")
+                if finalizar == "s" or finalizar == "S":
+                    condicion_salir = True
+                condicion_agregar = True
+            elif agregar_total == "n" or agregar_total == "N":
+                subtotal = 0
+                finalizar = input("¿Deseas finalizar la compra (s/n)?: ")
+                if finalizar == "s" or finalizar == "S":
+                    condicion_salir = True
+            else:
+                print("opcion no valida")
+    elif opcion == 2:
+        print("Haz seleccionado hamburguesa con papas")
+        cantidad = int(input("¿Cuanto deseas comprar?: "))
+        subtotal = calculo_subtotal(cantidad, opcion)
+        condicion_agregar = False
+        while not condicion_agregar:
+            agregar_total = input(f"El subtotal es : ${subtotal}, ¿Estas seguro de agregar este producto a tu compra(s/n)?: ")
+            if agregar_total == "s" or agregar_total == "S":
+                total += subtotal
+                subtotal = 0
+                finalizar = input("¿Deseas finalizar la compra (s/n)?: ")
+                if finalizar == "s" or finalizar == "S":
+                    condicion_salir = True
+                condicion_agregar = True
+            elif agregar_total == "n" or agregar_total == "N":
+                subtotal = 0
+                finalizar = input("¿Deseas finalizar la compra (s/n)?: ")
+                if finalizar == "s" or finalizar == "S":
+                    condicion_salir = True
+            else:
+                print("opcion no valida")
+    elif opcion == 3:
+        print("Haz seleccionado salchipapa")
+        cantidad = int(input("¿Cuanto deseas comprar?: "))
+        subtotal = calculo_subtotal(cantidad, opcion)
+        condicion_agregar = False
+        while not condicion_agregar:
+            agregar_total = input(f"El subtotal es : ${subtotal}, ¿Estas seguro de agregar este producto a tu compra(s/n)?: ")
+            if agregar_total == "s" or agregar_total == "S":
+                total += subtotal
+                subtotal = 0
+                finalizar = input("¿Deseas finalizar la compra (s/n)?: ")
+                if finalizar == "s" or finalizar == "S":
+                    condicion_salir = True
+                condicion_agregar = True
+            elif agregar_total == "n" or agregar_total == "N":
+                subtotal = 0
+                finalizar = input("¿Deseas finalizar la compra (s/n)?: ")
+                if finalizar == "s" or finalizar == "S":
+                    condicion_salir = True
+            else:
+                print("opcion no valida")
+    elif opcion == 4:
+        print("Haz seleccionado salir")
+        salir = input("¿Estas seguro de salir(s/n)?: ")
+        if salir == "s" or salir == "S":
+            condicion_salir = True
+        elif salir == "n" or salir == "N":
+            condicion_salir = False
+        else:
+            print("Opcion no valida")
+            condicion_salir = False
+    else:
+        opcion = input("Opcion no vailda, Por favor ingrese una opcion del (1-4)")
+        condicion_salir = False
+
+print("\n" + 30 * "-")
+print("      FACTURA")
+print(30 * "-")
+print(f"Total consumido: ${total:.2f}")
+print("Gracias por su compra.")
+print(30 * "-")
