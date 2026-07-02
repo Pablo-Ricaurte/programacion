@@ -21,6 +21,7 @@ while not condicion_salir:
     print("** MENU **")
     for elementos in menu:
         print(elementos)
+    print(30*"-")
     opcion = int(input("Por favor seleccione lo que desea comprar: "))
     if opcion == 1:
         print("Haz seleccionado hamburguesa simple")
