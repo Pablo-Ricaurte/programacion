@@ -6,14 +6,21 @@ def calculo_subtotal(cantidad, opcion):
     elif opcion == 3:
         return cantidad * 1.50
 
+def mostrar_factura(*datos):
+    print("-" * 30)
+    print("-- FACTURA  --")
+    print("-" * 30)
+    for dato in datos:
+        print(dato)
+    print("-" * 30)
+    print("Gracias por su compra.")
+
 
 subtotal = float()
 total = float()
 condicion_salir = False
 condicion_agregar = False
 menu = ["1. Hamburguesas simple....$2", "2. Hamburguesa con papas....$3", "3. Salchipapa....$1.50", "4. Salir"]
-
-menu_bebidas = ["1.Cocacola 1L....$2", "2. Limonada....$1"]
 print(30*"-")
 print("-- HAMBURGUESAS HEISENBERG --")
 print(30*"-")
@@ -42,6 +49,7 @@ while not condicion_salir:
                 finalizar = input("¿Deseas finalizar la compra (s/n)?: ")
                 if finalizar == "s" or finalizar == "S":
                     condicion_salir = True
+                condicion_agregar = True
             else:
                 print("opcion no valida")
     elif opcion == 2:
@@ -63,6 +71,7 @@ while not condicion_salir:
                 finalizar = input("¿Deseas finalizar la compra (s/n)?: ")
                 if finalizar == "s" or finalizar == "S":
                     condicion_salir = True
+                condicion_agregar = True
             else:
                 print("opcion no valida")
     elif opcion == 3:
@@ -84,6 +93,7 @@ while not condicion_salir:
                 finalizar = input("¿Deseas finalizar la compra (s/n)?: ")
                 if finalizar == "s" or finalizar == "S":
                     condicion_salir = True
+                condicion_agregar = True
             else:
                 print("opcion no valida")
     elif opcion == 4:
@@ -98,11 +108,5 @@ while not condicion_salir:
             condicion_salir = False
     else:
         opcion = input("Opcion no vailda, Por favor ingrese una opcion del (1-4)")
-        condicion_salir = False
 
-print("\n" + 30 * "-")
-print("      FACTURA")
-print(30 * "-")
-print(f"Total consumido: ${total:.2f}")
-print("Gracias por su compra.")
-print(30 * "-")
+mostrar_factura(f"Total: ${total}")
